@@ -1,29 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { NavigationMenu } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  ArrowRightIcon,
-  PaintbrushIcon,
-  HomeIcon,
-  Building2Icon,
-  SofaIcon,
-  PaletteIcon,
+
   PhoneIcon,
   MailIcon,
   MapPinIcon,
-  ChevronRightIcon,
   StarIcon,
 } from "lucide-react";
 import Header from "./shared/Header";
 import Hero from "./shared/Hero";
 import Service from "./shared/Services";
 import Portfolio from "./shared/Portfolio";
+import Testimonial from "./shared/Testimonial";
 
 export default function Home() {
   const [activePortfolioTab, setActivePortfolioTab] = useState("residential");
@@ -34,93 +27,9 @@ export default function Home() {
       <Hero></Hero>
 <Service></Service>
 <Portfolio></Portfolio>
-
-      {/* Portfolio Section */}
-
-
+<Testimonial></Testimonial>
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Client Testimonials
-          </h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Hear what our satisfied clients have to say about their experience
-          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
-            <Card className="p-6">
-              <div className="flex items-center mb-4">
-                <div className="flex text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-              </div>
-              <p className="mb-4 text-muted-foreground">
-                "InteriorCraft transformed our home beyond our expectations.
-                Their attention to detail and understanding of our style was
-                impressive."
-              </p>
-              <div className="flex items-center">
-                <div>
-                  <h4 className="font-semibold">Sarah Johnson</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Residential Client
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Testimonial 2 */}
-            <Card className="p-6">
-              <div className="flex items-center mb-4">
-                <div className="flex text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-              </div>
-              <p className="mb-4 text-muted-foreground">
-                "The team's expertise in commercial design helped us create an
-                office space that perfectly reflects our brand identity."
-              </p>
-              <div className="flex items-center">
-                <div>
-                  <h4 className="font-semibold">Michael Chen</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Business Owner
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Testimonial 3 */}
-            <Card className="p-6">
-              <div className="flex items-center mb-4">
-                <div className="flex text-primary">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="h-4 w-4 fill-current" />
-                  ))}
-                </div>
-              </div>
-              <p className="mb-4 text-muted-foreground">
-                "The custom furniture pieces they designed fit perfectly in our
-                space and added that unique touch we were looking for."
-              </p>
-              <div className="flex items-center">
-                <div>
-                  <h4 className="font-semibold">Emma Thompson</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Custom Furniture Client
-                  </p>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-muted">
