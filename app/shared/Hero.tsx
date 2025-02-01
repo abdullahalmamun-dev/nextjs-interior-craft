@@ -17,7 +17,7 @@ export default function Hero() {
             backgroundSize: "cover",
           }}
         >
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
