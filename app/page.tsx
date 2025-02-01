@@ -8,55 +8,37 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import {
-  ArrowRight,
-  Paintbrush,
-  Home,
-  Building2,
-  Sofa,
-  Palette,
-  Phone,
-  Mail,
-  MapPin,
-  ChevronRight,
-  Star
+  ArrowRightIcon,
+  PaintbrushIcon,
+  HomeIcon,
+  Building2Icon,
+  SofaIcon,
+  PaletteIcon,
+  PhoneIcon,
+  MailIcon,
+  MapPinIcon,
+  ChevronRightIcon,
+  StarIcon,
 } from "lucide-react";
+import Header from "./shared/Header";
 
 export default function Home() {
   const [activePortfolioTab, setActivePortfolioTab] = useState("residential");
 
   return (
     <main className="min-h-screen">
-      {/* Header - Keeping the existing header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <Paintbrush className="h-6 w-6 text-primary" />
-            <span className="text-xl font-semibold">InteriorCraft</span>
-          </div>
-          <nav className="hidden md:flex items-center space-x-8">
-            <a href="#home" className="text-sm font-medium hover:text-primary transition-colors">Home</a>
-            <a href="#services" className="text-sm font-medium hover:text-primary transition-colors">Services</a>
-            <a href="#portfolio" className="text-sm font-medium hover:text-primary transition-colors">Portfolio</a>
-            <a href="#testimonials" className="text-sm font-medium hover:text-primary transition-colors">Testimonials</a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary transition-colors">Contact</a>
-          </nav>
-          <Button className="hidden md:inline-flex">Book Consultation</Button>
-          <Button variant="ghost" className="md:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-          </Button>
-        </div>
-      </header>
+      <Header></Header>
 
-      {/* Hero Section - Keeping the existing hero */}
-      <section id="home" className="relative h-screen flex items-center justify-center">
-        <div 
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="relative h-screen flex items-center justify-center"
+      >
+        <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80')",
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2400&q=80')",
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
@@ -65,17 +47,24 @@ export default function Home() {
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Transform Your Space<br />With Style
+            Transform Your Space
+            <br />
+            With Style
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Elevate your living and working spaces with our expert interior design services
+            Elevate your living and working spaces with our expert interior
+            design services
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-black hover:bg-white/90">
               View Our Work
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRightIcon className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-black">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-black"
+            >
               Book a Consultation
             </Button>
           </div>
@@ -87,120 +76,132 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4">Our Services</h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            We offer comprehensive interior design solutions tailored to your unique style and needs
+            We offer comprehensive interior design solutions tailored to your
+            unique style and needs
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Residential Design */}
             <Card className="p-6 hover:shadow-lg transition-shadow">
-              <Home className="h-12 w-12 text-primary mb-4" />
+              <HomeIcon className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Residential Design</h3>
               <p className="text-muted-foreground mb-4">
-                Transform your home into a stunning sanctuary with our expert residential design services.
+                Transform your home into a stunning sanctuary with our expert
+                residential design services.
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Living Spaces
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Bedrooms
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Kitchens
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Bathrooms
                 </li>
               </ul>
-              <Button variant="outline" className="w-full">Learn More</Button>
+              <Button variant="outline" className="w-full">
+                Learn More
+              </Button>
             </Card>
 
             {/* Commercial Design */}
             <Card className="p-6 hover:shadow-lg transition-shadow">
-              <Building2 className="h-12 w-12 text-primary mb-4" />
+              <Building2Icon className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Commercial Design</h3>
               <p className="text-muted-foreground mb-4">
-                Create inspiring workspaces that boost productivity and impress clients.
+                Create inspiring workspaces that boost productivity and impress
+                clients.
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Offices
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Retail Spaces
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Restaurants
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Hotels
                 </li>
               </ul>
-              <Button variant="outline" className="w-full">Learn More</Button>
+              <Button variant="outline" className="w-full">
+                Learn More
+              </Button>
             </Card>
 
             {/* Custom Furniture */}
             <Card className="p-6 hover:shadow-lg transition-shadow">
-              <Sofa className="h-12 w-12 text-primary mb-4" />
+              <SofaIcon className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Custom Furniture</h3>
               <p className="text-muted-foreground mb-4">
-                Unique, made-to-measure furniture pieces that perfectly fit your space.
+                Unique, made-to-measure furniture pieces that perfectly fit your
+                space.
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Seating
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Storage
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Tables
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Lighting
                 </li>
               </ul>
-              <Button variant="outline" className="w-full">Learn More</Button>
+              <Button variant="outline" className="w-full">
+                Learn More
+              </Button>
             </Card>
 
             {/* Consultation */}
             <Card className="p-6 hover:shadow-lg transition-shadow">
-              <Palette className="h-12 w-12 text-primary mb-4" />
+              <PaletteIcon className="h-12 w-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Consultation</h3>
               <p className="text-muted-foreground mb-4">
                 Expert advice and planning to bring your design vision to life.
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Color Selection
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Space Planning
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Material Selection
                 </li>
                 <li className="flex items-center">
-                  <ChevronRight className="h-4 w-4 text-primary mr-2" />
+                  <ChevronRightIcon className="h-4 w-4 text-primary mr-2" />
                   Project Management
                 </li>
               </ul>
-              <Button variant="outline" className="w-full">Learn More</Button>
+              <Button variant="outline" className="w-full">
+                Learn More
+              </Button>
             </Card>
           </div>
         </div>
@@ -211,7 +212,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4">Our Portfolio</h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Explore our collection of thoughtfully designed spaces and custom solutions
+            Explore our collection of thoughtfully designed spaces and custom
+            solutions
           </p>
 
           <Tabs defaultValue="residential" className="w-full">
@@ -234,8 +236,13 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold mb-2">Modern Minimalist Living Room</h3>
-                    <p className="text-sm text-muted-foreground">A clean, contemporary design focusing on functionality and style.</p>
+                    <h3 className="font-semibold mb-2">
+                      Modern Minimalist Living Room
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      A clean, contemporary design focusing on functionality and
+                      style.
+                    </p>
                   </div>
                 </Card>
                 <Card className="overflow-hidden">
@@ -247,8 +254,12 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold mb-2">Luxury Master Bedroom</h3>
-                    <p className="text-sm text-muted-foreground">An elegant retreat with custom furnishings and lighting.</p>
+                    <h3 className="font-semibold mb-2">
+                      Luxury Master Bedroom
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      An elegant retreat with custom furnishings and lighting.
+                    </p>
                   </div>
                 </Card>
                 <Card className="overflow-hidden">
@@ -260,14 +271,130 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold mb-2">Contemporary Kitchen Design</h3>
-                    <p className="text-sm text-muted-foreground">A perfect blend of functionality and modern aesthetics.</p>
+                    <h3 className="font-semibold mb-2">
+                      Contemporary Kitchen Design
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      A perfect blend of functionality and modern aesthetics.
+                    </p>
                   </div>
                 </Card>
               </div>
             </TabsContent>
 
-            {/* Add similar TabsContent for commercial, furniture, and consultation */}
+            {/* Commercial Projects */}
+            <TabsContent value="commercial">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1497366216548-37526070297c"
+                      alt="Modern office space"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">Tech Startup Office</h3>
+                    <p className="text-sm text-muted-foreground">
+                      A dynamic workspace designed for collaboration and
+                      creativity.
+                    </p>
+                  </div>
+                </Card>
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1441986300917-64674bd600d8"
+                      alt="Boutique retail store"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">Luxury Retail Space</h3>
+                    <p className="text-sm text-muted-foreground">
+                      An inviting retail environment that enhances the shopping
+                      experience.
+                    </p>
+                  </div>
+                </Card>
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
+                      alt="Restaurant interior"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">
+                      Fine Dining Restaurant
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      An atmospheric dining space that elevates the culinary
+                      experience.
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </TabsContent>
+
+            {/* Furniture Projects */}
+            <TabsContent value="furniture">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e"
+                      alt="Custom sofa"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">
+                      Bespoke Seating Collection
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Custom-designed sofas and chairs for maximum comfort and
+                      style.
+                    </p>
+                  </div>
+                </Card>
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1505693314120-0d443867891c"
+                      alt="Dining table"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">Artisan Dining Table</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Hand-crafted dining tables that become the heart of your
+                      home.
+                    </p>
+                  </div>
+                </Card>
+                <Card className="overflow-hidden">
+                  <div className="aspect-video relative">
+                    <img
+                      src="https://images.unsplash.com/photo-1530603907829-659dc8ec3682"
+                      alt="Storage solution"
+                      className="object-cover w-full h-full"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">
+                      Modern Storage Solutions
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Innovative storage designs that combine functionality with
+                      aesthetics.
+                    </p>
+                  </div>
+                </Card>
+              </div>
+            </TabsContent>
           </Tabs>
         </div>
       </section>
@@ -275,7 +402,9 @@ export default function Home() {
       {/* Testimonials Section */}
       <section id="testimonials" className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Client Testimonials</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">
+            Client Testimonials
+          </h2>
           <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
             Hear what our satisfied clients have to say about their experience
           </p>
@@ -286,17 +415,21 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <div className="flex text-primary">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
+                    <StarIcon key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
               </div>
               <p className="mb-4 text-muted-foreground">
-                "InteriorCraft transformed our home beyond our expectations. Their attention to detail and understanding of our style was impressive."
+                "InteriorCraft transformed our home beyond our expectations.
+                Their attention to detail and understanding of our style was
+                impressive."
               </p>
               <div className="flex items-center">
                 <div>
                   <h4 className="font-semibold">Sarah Johnson</h4>
-                  <p className="text-sm text-muted-foreground">Residential Client</p>
+                  <p className="text-sm text-muted-foreground">
+                    Residential Client
+                  </p>
                 </div>
               </div>
             </Card>
@@ -306,17 +439,20 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <div className="flex text-primary">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
+                    <StarIcon key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
               </div>
               <p className="mb-4 text-muted-foreground">
-                "The team's expertise in commercial design helped us create an office space that perfectly reflects our brand identity."
+                "The team's expertise in commercial design helped us create an
+                office space that perfectly reflects our brand identity."
               </p>
               <div className="flex items-center">
                 <div>
                   <h4 className="font-semibold">Michael Chen</h4>
-                  <p className="text-sm text-muted-foreground">Business Owner</p>
+                  <p className="text-sm text-muted-foreground">
+                    Business Owner
+                  </p>
                 </div>
               </div>
             </Card>
@@ -326,17 +462,20 @@ export default function Home() {
               <div className="flex items-center mb-4">
                 <div className="flex text-primary">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
+                    <StarIcon key={i} className="h-4 w-4 fill-current" />
                   ))}
                 </div>
               </div>
               <p className="mb-4 text-muted-foreground">
-                "The custom furniture pieces they designed fit perfectly in our space and added that unique touch we were looking for."
+                "The custom furniture pieces they designed fit perfectly in our
+                space and added that unique touch we were looking for."
               </p>
               <div className="flex items-center">
                 <div>
                   <h4 className="font-semibold">Emma Thompson</h4>
-                  <p className="text-sm text-muted-foreground">Custom Furniture Client</p>
+                  <p className="text-sm text-muted-foreground">
+                    Custom Furniture Client
+                  </p>
                 </div>
               </div>
             </Card>
@@ -356,7 +495,7 @@ export default function Home() {
             <div className="space-y-8">
               <div className="flex items-center space-x-4">
                 <div className="bg-primary/10 p-3 rounded-full">
-                  <Phone className="h-6 w-6 text-primary" />
+                  <PhoneIcon className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Phone</h3>
@@ -366,21 +505,25 @@ export default function Home() {
 
               <div className="flex items-center space-x-4">
                 <div className="bg-primary/10 p-3 rounded-full">
-                  <Mail className="h-6 w-6 text-primary" />
+                  <MailIcon className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <p className="text-muted-foreground">contact@interiorcraft.com</p>
+                  <p className="text-muted-foreground">
+                    contact@interiorcraft.com
+                  </p>
                 </div>
               </div>
 
               <div className="flex items-center space-x-4">
                 <div className="bg-primary/10 p-3 rounded-full">
-                  <MapPin className="h-6 w-6 text-primary" />
+                  <MapPinIcon className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold">Location</h3>
-                  <p className="text-muted-foreground">123 Design Street, Creative City, ST 12345</p>
+                  <p className="text-muted-foreground">
+                    123 Design Street, Creative City, ST 12345
+                  </p>
                 </div>
               </div>
             </div>
@@ -403,7 +546,10 @@ export default function Home() {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Message</label>
-                  <Textarea placeholder="Tell us about your project..." className="min-h-[120px]" />
+                  <Textarea
+                    placeholder="Tell us about your project..."
+                    className="min-h-[120px]"
+                  />
                 </div>
                 <Button className="w-full">Send Message</Button>
               </form>
