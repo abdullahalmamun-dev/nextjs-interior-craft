@@ -3,12 +3,8 @@ import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@radix-ui/react-tabs";
 import {
   ArrowRightIcon,
-  Building2Icon,
   ChevronRightIcon,
-  HomeIcon,
-  PaintbrushIcon,
-  PaletteIcon,
-  SofaIcon,
+
 } from "lucide-react";
 import Image from "next/image";
 import storage from "../src/photo-1463717738788-85fcacb6ac3d.avif"
@@ -26,7 +22,7 @@ export default function Service() {
         <h2 className="text-3xl md:text-4xl font-extrabold text-white text-center mb-4">
           Our Portfolio
         </h2>
-        <p className="text-lg md:text-xl text-white text-center mb-12 max-w-3xl mx-auto">
+        <p className="text-lg md:text-xl text-white text-justify md:text-center mb-12 max-w-3xl mx-auto">
           Explore our collection of thoughtfully designed spaces and custom
           solutions. From residential to commercial design, we create
           personalized spaces that inspire and elevate the way you live and

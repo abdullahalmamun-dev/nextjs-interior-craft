@@ -1,7 +1,24 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { PaintbrushIcon } from "lucide-react";
+import { PaintbrushIcon, Menu, X } from "lucide-react";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Attach the event listener only when the menu is open
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleOutsideClick = (event: MouseEvent) => {
+      setMenuOpen(false);
+    };
+    document.addEventListener("click", handleOutsideClick);
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, [menuOpen]);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-900 to-gray-700 backdrop-blur-sm border-b border-gray-800 shadow-lg">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
@@ -11,43 +28,61 @@ export default function Header() {
           <span className="text-2xl font-extrabold text-white tracking-wide">Interior Craft</span>
         </div>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10 text-white">
-          <a href="#home" className="text-base font-medium hover:text-yellow-400 transition-colors duration-200 transform hover:scale-105">
-            Home
-          </a>
-          <a href="#services" className="text-base font-medium hover:text-yellow-400 transition-colors duration-200 transform hover:scale-105">
-            Services
-          </a>
-          <a href="#portfolio" className="text-base font-medium hover:text-yellow-400 transition-colors duration-200 transform hover:scale-105">
-            Portfolio
-          </a>
-          <a href="#testimonials" className="text-base font-medium hover:text-yellow-400 transition-colors duration-200 transform hover:scale-105">
-            Testimonials
-          </a>
-          <a href="#about-us" className="text-base font-medium hover:text-yellow-400 transition-colors duration-200 transform hover:scale-105">
-            About Us
-          </a>
-          <a href="#contact" className="text-base font-medium hover:text-yellow-400 transition-colors duration-200 transform hover:scale-105">
-            Contact
-          </a>
+          {["Home", "Services", "Portfolio", "Testimonials", "About Us", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s/g, "-")}`}
+              className="text-base font-medium hover:text-yellow-400 transition-transform duration-200 hover:scale-105"
+            >
+              {item}
+            </a>
+          ))}
         </nav>
 
-        {/* Buttons */}
-        <div className="flex space-x-4">
-          <Button className="hidden md:inline-flex text-white bg-yellow-500 hover:bg-yellow-600 transition-colors duration-200 py-2 px-6 rounded-full text-sm font-medium">
+        {/* Desktop Button */}
+        <div className="hidden md:flex space-x-4">
+          <Button className="text-white bg-yellow-500 hover:bg-yellow-600 transition-colors duration-200 py-2 px-6 rounded-full text-sm font-medium">
             Book Consultation
           </Button>
-
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" className="md:hidden text-white hover:bg-white/10 rounded-lg p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-              <line x1="4" y1="12" x2="20" y2="12"></line>
-              <line x1="4" y1="6" x2="20" y2="6"></line>
-              <line x1="4" y1="18" x2="20" y2="18"></line>
-            </svg>
-          </Button>
         </div>
+
+        {/* Mobile Menu Button */}
+        <Button
+          variant="ghost"
+          className="md:hidden text-white hover:bg-white/10 rounded-lg p-2"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent closing when clicking the button
+            setMenuOpen(!menuOpen);
+          }}
+        >
+          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </Button>
+      </div>
+
+      {/* Mobile Navigation (Dropdown) */}
+      <div
+        className={`md:hidden fixed top-16 left-0 right-0 bg-gray-900 border-t border-gray-700 transition-all duration-300 ease-in-out ${
+          menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"
+        }`}
+        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside menu
+      >
+        <nav className="flex flex-col items-center space-y-4 text-white py-4">
+          {["Home", "Services", "Portfolio", "Testimonials", "About Us", "Contact"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s/g, "-")}`}
+              className="text-base font-medium hover:text-yellow-400 transition-colors duration-200"
+              onClick={() => setMenuOpen(false)} // Close menu on link click
+            >
+              {item}
+            </a>
+          ))}
+          <Button className="text-white bg-yellow-500 hover:bg-yellow-600 transition-colors duration-200 py-2 px-6 rounded-full text-sm font-medium">
+            Book Consultation
+          </Button>
+        </nav>
       </div>
     </header>
   );
